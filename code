@@ -1,27 +1,22 @@
 import random
 
-lanes = [North', 'East', 'South', 'West]
+lanes = ['North', 'East', 'South', 'West']
 
 MIN_GREEN = 10
-
 MAX_GREEN = 60
 
-def run_traffic 0:
+def run_traffic():
+    print("Traffic Flow Optimization\n")
 
-print("Traffic Flow Optimization\n")
+    traffic = {lane: random.randint(0, 50) for lane in lanes}
+    total = sum(traffic.values())
 
-traffic = {lane: random.randint(0, 50) for lane in lanes)
+    for lane in lanes:
+        if total:
+            green = int((traffic[lane] / total) * MAX_GREEN)
+        else:
+            green = MIN_GREEN
+        green = max(MIN_GREEN, green)
+        print(f"{lane}: {traffic[lane]} vehicles => {green} sec GREEN")
 
-total = sum(traffic.values())
-
-for lane in lanes:
-
-green = int((traffic[lane] / total) * MAX_GREEN) if
-
-total else MIN_GREEN
-
-green = max(MIN_GREEN, green)
-
-print("{lane): {traffic/lane]} vehicles => {green) sec GREEN)
-
-run_traffic)
+run_traffic()
